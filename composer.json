@@ -1,0 +1,24 @@
+{
+    "name": "viniciusilveira/emec-api",
+    "description": "PHP Api for collect data from e-mec webpage. Fork this https://github.com/alissonlinneker/e-MEC-API",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vinicius Silveira",
+            "email": "viniciussilveira6@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+      "psr-4": {
+        "EmecApi\\" : "src"
+      },
+    "files": ["config.php"]
+    },
+    "autoload-dev": {
+      "psr-0": {
+        "EmecApiTests\\": "tests/"
+      }
+    }
+}
