@@ -1,11 +1,12 @@
 <?php
 
+namespace App\MecApi;
 /*
 @author Alisson Linneker <alissonlinneker@gmail.com>
 @website www.Alisson.eng.br
 */
 
-class MECApi
+class MecApi
 {
      /*
     Função para listar os municípios do estado com seus respectivos códigos
@@ -105,3 +106,4 @@ class MECApi
         return $array;
     }
 }
+
