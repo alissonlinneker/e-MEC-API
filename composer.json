@@ -1,11 +1,11 @@
 {
-    "name": "viniciusilveira/emec-api",
-    "description": "PHP Api for collect data from e-mec webpage. Fork this https://github.com/alissonlinneker/e-MEC-API",
+    "name": "alissonlinneker/e-MEC-API",
+    "description": "PHP Api for collect data from e-mec webpage.",
     "license": "MIT",
     "authors": [
         {
-            "name": "Vinicius Silveira",
-            "email": "viniciussilveira6@gmail.com"
+            "name": "alissonlinneker",
+            "email": ""
         }
     ],
     "require": {},
