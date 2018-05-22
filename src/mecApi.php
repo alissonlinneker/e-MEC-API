@@ -1,6 +1,6 @@
 <?php
 
-namespace App\MecApi;
+namespace App;
 /*
 @author Alisson Linneker <alissonlinneker@gmail.com>
 @website www.Alisson.eng.br
