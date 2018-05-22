@@ -13,8 +13,7 @@
     "autoload": {
       "psr-4": {
         "EmecApi\\" : "src"
-      },
-    "files": ["config.php"]
+      }
     },
     "autoload-dev": {
       "psr-0": {
