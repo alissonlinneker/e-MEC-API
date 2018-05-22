@@ -12,12 +12,12 @@
     "require-dev": {},
     "autoload": {
       "psr-4": {
-        "EmecApi\\" : "src"
+        "App\\" : "src"
       }
     },
     "autoload-dev": {
       "psr-0": {
-        "EmecApiTests\\": "tests/"
+        "AppTests\\": "tests/"
       }
     }
 }
