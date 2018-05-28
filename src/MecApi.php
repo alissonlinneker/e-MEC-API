@@ -22,7 +22,7 @@ class MecApi
     */
     function get_instituicoes($cod_municipio)
     {
-        include_once('./src/simple_html_dom.php');
+        include_once('simple_html_dom.php');
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'http://emec.mec.gov.br/emec/nova-index/listar-consulta-avancada/list/1000');
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0');
@@ -64,7 +64,7 @@ class MecApi
     {
         $html = file_get_contents('http://emec.mec.gov.br/emec/consulta-ies/listar-endereco/d96957f455f6405d14c6542552b0f6eb/'.base64_encode($cod).'/list/1000');
 
-        include_once('./src/simple_html_dom.php');
+        include_once('simple_html_dom.php');
 
         $dom = new domDocument;
         @$dom->loadHTML($html);
