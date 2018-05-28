@@ -33,7 +33,7 @@ class MecApi
         $buffer = curl_exec($ch);
         curl_close($ch);
 
-        $dom = new domDocument;
+        $dom = new \domDocument;
 
         @$dom->loadHTML($buffer);
         $dom->preserveWhiteSpace = false;
@@ -66,7 +66,7 @@ class MecApi
 
         include_once('simple_html_dom.php');
 
-        $dom = new domDocument;
+        $dom = new \domDocument;
         @$dom->loadHTML($html);
         $dom->preserveWhiteSpace = false;
         $tables = $dom->getElementsByTagName('tbody');
@@ -91,9 +91,9 @@ class MecApi
     function get_instituicao_cursos($cod_endereco, $cod_instituicao)
     {
         $html = file_get_contents('http://emec.mec.gov.br/emec/consulta-ies/listar-curso-endereco/d96957f455f6405d14c6542552b0f6eb/'.base64_encode($cod_instituicao).'/aa547dc9e0377b562e2354d29f06085f/'.base64_encode($cod_endereco).'/list/1000');
-        include_once('./src/simple_html_dom.php');
+        include_once('simple_html_dom.php');
 
-        $dom = new domDocument;
+        $dom = new \domDocument;
         @$dom->loadHTML($html);
         $dom->preserveWhiteSpace = false;
         $tables = $dom->getElementsByTagName('tbody');
