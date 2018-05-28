@@ -19,7 +19,7 @@ class MecApi
 
     /*
     Função para obter as instituições à partir do código do município
-    */
+     */
     function get_instituicoes($cod_municipio)
     {
         include_once('simple_html_dom.php');
@@ -34,10 +34,10 @@ class MecApi
         curl_close($ch);
 
         $dom = new \domDocument;
-
         @$dom->loadHTML($buffer);
         $dom->preserveWhiteSpace = false;
         $tables = $dom->getElementsByTagName('tr');
+        $array = array();
 
         foreach ($tables as $row)
         {
