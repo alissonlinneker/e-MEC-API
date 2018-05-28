@@ -1,10 +1,10 @@
 {
-    "name": "alissonlinneker/e-MEC-API",
+    "name": "viniciusilveira/emec-api",
     "description": "PHP Api for collect data from e-mec webpage.",
     "license": "MIT",
     "authors": [
         {
-            "name": "alissonlinneker",
+            "name": "viniciusilveira",
             "email": ""
         }
     ],
