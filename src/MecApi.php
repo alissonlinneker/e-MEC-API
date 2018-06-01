@@ -34,25 +34,45 @@ class MecApi
         curl_close($ch);
 
         $dom = new \domDocument;
+
         @$dom->loadHTML($buffer);
         $dom->preserveWhiteSpace = false;
         $tables = $dom->getElementsByTagName('tr');
-        $array = array();
+
+        $array['cod_municipio'] = $cod_municipio;
+
+        $linha = 0;
 
         foreach ($tables as $row)
         {
-            $cols = $row->getElementsByTagName('td');
-            if($cols->length == 8)
-            {
-                $array[$cols->item(0)->nodeValue] = array(
-                    'IES' => $cols->item(1)->nodeValue,
-                    'organizacao' => $cols->item(2)->nodeValue,
-                    'categoria' => $cols->item(3)->nodeValue,
-                    'CI' => $cols->item(4)->nodeValue,
-                    'IGC' => $cols->item(5)->nodeValue,
-                    'situacao' => $cols->item(6)->nodeValue
-                );
+
+            $linha++;
+            if($linha>=2){
+
+                $cols = $row->getElementsByTagName('th');
+                foreach ($cols as $item){
+                    $array['header'][] = $item->nodeValue;
+                }
+                break;
             }
+
+        }
+
+        $itens = array();
+        foreach ($tables as $row)
+        {
+            $cols = $row->getElementsByTagName('td');
+
+            $linha = array();
+            foreach ($cols as $item){
+                if($cols->length == count($array['header'])){
+                    $linha[] = $item->nodeValue;
+                }
+            }
+            if(!empty($linha)){
+                $array['body'][] = $linha;
+            }
+
         }
         return $array;
     }
@@ -107,3 +127,5 @@ class MecApi
     }
 }
 
+$emec = new MecApi();
+var_dump($emec->get_instituicoes('3106200'));
