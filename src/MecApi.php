@@ -126,6 +126,3 @@ class MecApi
         return $array;
     }
 }
-
-$emec = new MecApi();
-var_dump($emec->get_instituicoes('3106200'));
