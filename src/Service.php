@@ -9,11 +9,8 @@ class Service
         $line = 0;
         foreach ($tables as $row) {
             $line++;
-            if ($line >= 2) {
-                $cols = $row->getElementsByTagName('th');
-                foreach ($cols as $item) {
-                    $header[] = $item->nodeValue;
-                }
+            if($line >= 2){
+                $header = $this->validateHeaderElements($line, $row);
                 break;
             }
         }
@@ -23,7 +20,8 @@ class Service
 
     public static function mountBodyInstitutions($tables, $array)
     {
-        $itens = array();
+        $itens = [];
+        $body = [];
         foreach ($tables as $row) {
             $cols = $row->getElementsByTagName('td');
 
@@ -39,5 +37,15 @@ class Service
         }
 
         return $body;
+    }
+
+    private function validateHeaderElements($line, $row)
+    {
+        $cols = $row->getElementsByTagName('th');
+        foreach ($cols as $item) {
+            $header[] = $item->nodeValue;
+        }
+
+        return $header;
     }
 }
