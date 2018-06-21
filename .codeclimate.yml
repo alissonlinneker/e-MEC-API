@@ -12,3 +12,4 @@ exclude_patterns:
   - ".git"
   - "vendor"
   - "tests"
+  - "src/simple_html_dom.php"
