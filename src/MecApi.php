@@ -2,11 +2,6 @@
 
 namespace App;
 
-/*
-@author Alisson Linneker <alissonlinneker@gmail.com>
-@website www.Alisson.eng.br
-*/
-
 class MecApi
 {
     public function get_municipios($sigla /* 2 dígitos maiúsculos */)
