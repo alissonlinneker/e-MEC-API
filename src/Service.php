@@ -10,7 +10,7 @@ class Service
         foreach ($tables as $row) {
             $line++;
             if($line >= 2){
-                $header = $this->validateHeaderElements($line, $row);
+                $header = Service::validateHeaderElements($line, $row);
                 break;
             }
         }
@@ -39,7 +39,7 @@ class Service
         return $body;
     }
 
-    private function validateHeaderElements($line, $row)
+    private static function validateHeaderElements($line, $row)
     {
         $cols = $row->getElementsByTagName('th');
         foreach ($cols as $item) {
