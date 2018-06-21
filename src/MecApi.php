@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Service;
+
 class MecApi
 {
     public function getMunicipios($sigla)
@@ -31,34 +33,9 @@ class MecApi
 
         $array['cod_uf'] = $cod_uf;
         $array['cod_municipio'] = $cod_municipio;
+        $array['header'] = Service::mountHeaderInstitutions($tables);
+        $array['body']  = Service::mountBodyInstitutions($tables, $array);
 
-        $linha = 0;
-
-        foreach ($tables as $row) {
-            $linha++;
-            if ($linha >= 2) {
-                $cols = $row->getElementsByTagName('th');
-                foreach ($cols as $item) {
-                    $array['header'][] = $item->nodeValue;
-                }
-                break;
-            }
-        }
-
-        $itens = array();
-        foreach ($tables as $row) {
-            $cols = $row->getElementsByTagName('td');
-
-            $linha = array();
-            foreach ($cols as $item) {
-                if ($cols->length == count($array['header'])) {
-                    $linha[] = $item->nodeValue;
-                }
-            }
-            if (!empty($linha)) {
-                $array['body'][] = $linha;
-            }
-        }
         return $array;
     }
 
