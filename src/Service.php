@@ -21,7 +21,7 @@ class Service
     public static function mountBodyInstitutions($tables, $array)
     {
         $itens = [];
-        $body = [];
+        $body = NULL;
         foreach ($tables as $row) {
             $cols = $row->getElementsByTagName('td');
 
