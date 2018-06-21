@@ -9,18 +9,12 @@ namespace App;
 
 class MecApi
 {
-    /*
-   Função para listar os municípios do estado com seus respectivos códigos
-   */
     public function get_municipios($sigla /* 2 dígitos maiúsculos */)
     {
         $str = file_get_contents("http://emec.mec.gov.br/emec/comum/json/selecionar-municipio/" . md5("sg_uf") . "/" . base64_encode($sigla));
         return array_column(json_decode($str, true), 'co_municipio', 'ds_municipio');
     }
 
-    /*
-    Função para obter as instituições à partir do código do município
-     */
     public function get_instituicoes($cod_uf, $cod_municipio)
     {
         include_once('simple_html_dom.php');
@@ -72,9 +66,6 @@ class MecApi
         return $array;
     }
 
-    /*
-    Função para obter o endereço de cada campus da instituição
-    */
     public function get_instituicao_enderecos($cod)
     {
         $html = file_get_contents('http://emec.mec.gov.br/emec/consulta-ies/listar-endereco/d96957f455f6405d14c6542552b0f6eb/' . base64_encode($cod) . '/list/1000');
@@ -99,9 +90,6 @@ class MecApi
         return $array;
     }
 
-    /*
-    Função para obter cada curso de um determinado campus de uma instituição
-    */
     public function get_instituicao_cursos($cod_endereco, $cod_instituicao)
     {
         $html = file_get_contents('http://emec.mec.gov.br/emec/consulta-ies/listar-curso-endereco/d96957f455f6405d14c6542552b0f6eb/' . base64_encode($cod_instituicao) . '/aa547dc9e0377b562e2354d29f06085f/' . base64_encode($cod_endereco) . '/list/1000');
